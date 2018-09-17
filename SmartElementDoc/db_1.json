@@ -1,0 +1,48 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "email": "admin@smartelementary.com",
+      "password": "$2y$18$B43lG1hx992xgbQKRZktZ.Tc5b1foVzSbPK/Y3CnZRpTHJaTeIBrK",
+      "nama": "Admin",
+      "status": "admin",
+      "nip": "24617864726348731",
+      "alamat": "Jalan A nomor 1 Bandung",
+      "jabatan": "Golongan 1A",
+      "phone": "0876552677656",
+      "dob": "1988-09-07",
+      "npsn": null
+    },
+    {
+      "id": 2,
+      "email": "user@smartelementary.com",
+      "password": "$2y$18$B43lG1hx992xgbQKRZktZ.Tc5b1foVzSbPK/Y3CnZRpTHJaTeIBrK",
+      "nama": "User 1",
+      "status": "user",
+      "nip": "24617863726348731",
+      "alamat": "Jalan B nomor 1 Bandung",
+      "jabatan": "Golongan 4A",
+      "phone": "0876552176656",
+      "dob": "1990-09-07",
+      "npsn": "67862783671862"
+    }
+  ],
+  "school": [
+    {
+      "id": 1,
+      "npsn": "67862783671862",
+      "nama": "SD 1 B",
+      "alamat": "Jalan A nomor 2 Bandung",
+      "phone": "0227626536",
+      "status": "negeri"
+    },
+    {
+      "id": 2,
+      "npsn": "67862782331862",
+      "nama": "SD 23 F",
+      "alamat": "Jalan A nomor 87 Bandung",
+      "phone": "0227626536",
+      "status": "swasta"
+    }
+  ] 
+}

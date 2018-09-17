@@ -1,0 +1,72 @@
+{
+  "student": [
+    {
+      "id": 1,
+      "nik": "827467182468",
+      "nama": "AB",
+      "alamat": "Jalan BN nomor 34 Bandung",
+      "dob": "2011-09-07",
+      "agama": "islam",
+      "gender": "laki-laki",
+      "ortu": "BA",
+      "nasional": "Indonesia",
+      "blood": "AB+",
+      "ortuphone": "0876752786786",
+      "vaksin": {
+        "pdt": true,
+        "polio": true,
+        "mmr": false,
+        "tifoid": false,
+        "influenza": false,
+        "hpv": false
+      },
+      "sekolah": "SD 1 B"
+    },
+    {
+      "id": 2,
+      "nik": "76767182468",
+      "nama": "ABC",
+      "alamat": "Jalan AE nomor 14 Bandung",
+      "dob": "2010-09-07",
+      "agama": "islam",
+      "gender": "perempuan",
+      "ortu": "BC",
+      "nasional": "Indonesia",
+      "blood": "AB+",
+      "ortuphone": "087634186786",
+      "vaksin": {
+        "pdt": true,
+        "polio": true,
+        "mmr": true,
+        "tifoid": false,
+        "influenza": false,
+        "hpv": false
+      },
+      "sekolah": "SD 1 B"
+    }
+  ],
+  "vaksin_sch": [
+    {
+      "sekolah": "SD 1 B",
+      "vaksin": {
+        "pdt": 2,
+        "polio": 2,
+        "mmr": 1,
+        "tifoid": 0,
+        "influenza": 0,
+        "hpv": 0
+      }
+    },
+    {
+      "sekolah": "SD 23 F",
+      "vaksin": {
+        "pdt": 0,
+        "polio": 0,
+        "mmr": 0,
+        "tifoid": 0,
+        "influenza": 0,
+        "hpv": 0
+      }
+    }
+  ]
+}
