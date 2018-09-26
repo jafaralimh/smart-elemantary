@@ -522,6 +522,9 @@
             android:name=".activity.login.LoginCardLight"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".activity.login.RegisterCardLight"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".activity.login.LoginCardOverlap"
             android:screenOrientation="portrait" />
         <activity
