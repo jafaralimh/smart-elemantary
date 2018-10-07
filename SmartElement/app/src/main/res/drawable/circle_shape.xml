@@ -4,10 +4,6 @@
     android:thickness="4dp"
     android:useLevel="false">
 
-    <size
-        android:width="?attr/actionBarSize"
-        android:height="?attr/actionBarSize" />
-
     <solid android:color="@color/grey_10" />
 
 </shape>

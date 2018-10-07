@@ -33,8 +33,7 @@
         <activity
             android:name=".activity.MainMenu"
             android:label="@string/app_name"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".activity.bottomnavigation.BottomNavigationBasic"
             android:screenOrientation="portrait" />
@@ -587,6 +586,7 @@
         <activity
             android:name=".activity.dashboard.DashboardFlight"
             android:screenOrientation="portrait" />
+        <activity android:name=".activity.dashboard.MainDashboard"></activity>
     </application>
 
 </manifest>
