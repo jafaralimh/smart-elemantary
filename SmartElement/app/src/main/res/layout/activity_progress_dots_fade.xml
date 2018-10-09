@@ -67,7 +67,7 @@
                 android:layout_margin="@dimen/spacing_medium"
                 android:orientation="vertical">
 
-                <com.material.components.widget.ViewLoadingDotsFade
+                <com.material.smartelementary.widget.ViewLoadingDotsFade
                     android:layout_width="50dp"
                     android:layout_height="40dp"
                     android:background="@color/teal_300" />

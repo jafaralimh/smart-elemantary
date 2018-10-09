@@ -31,26 +31,42 @@
                     android:layout_height="@dimen/spacing_xlarge" />
 
                 <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:tint="@color/blue_grey_400"
-                    android:src="@drawable/logo_small" />
+                    android:layout_width="200dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/main_logo" />
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/spacing_large" />
-
-                <TextView
+                
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="2dp"
-                    android:text="@string/medium_lorem_ipsum"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/grey_80" />
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="2dp"
+                        android:text="@string/welcome"
+                        android:gravity="center_vertical|end"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/grey_80" />
+
+                    <TextView
+                        android:id="@+id/userShow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                        android:textColor="@color/blue_900" />
+
+                </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/spacing_mlarge" />
+                    android:layout_height="@dimen/spacing_middle" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -74,14 +90,14 @@
                             android:padding="@dimen/spacing_large">
 
                             <RelativeLayout
-                                android:layout_width="35dp"
-                                android:layout_height="35dp">
+                                android:layout_width="40dp"
+                                android:layout_height="40dp">
 
                                 <ImageView
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:layout_centerInParent="true"
-                                    android:tint="@color/blue_grey_400"
+                                    android:tint="@color/green_700"
                                     app:srcCompat="@drawable/shape_circle_outline_2dp" />
 
                                 <ImageView
@@ -89,8 +105,7 @@
                                     android:layout_height="match_parent"
                                     android:layout_centerInParent="true"
                                     android:layout_margin="5dp"
-                                    android:tint="@color/blue_grey_400"
-                                    app:srcCompat="@drawable/ic_swap_horiz" />
+                                    app:srcCompat="@drawable/ic_dashboard_home" />
 
                             </RelativeLayout>
 
@@ -99,7 +114,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="@dimen/spacing_medium"
                                 android:layout_marginTop="50dp"
-                                android:text="Transactions"
+                                android:text="Home"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
                                 android:textColor="@color/grey_80"
                                 app:fontFamily="sans-serif-medium" />
@@ -129,14 +144,14 @@
                             android:padding="@dimen/spacing_large">
 
                             <RelativeLayout
-                                android:layout_width="35dp"
-                                android:layout_height="35dp">
+                                android:layout_width="40dp"
+                                android:layout_height="40dp">
 
                                 <ImageView
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:layout_centerInParent="true"
-                                    android:tint="@color/blue_grey_400"
+                                    android:tint="@color/orange_700"
                                     app:srcCompat="@drawable/shape_circle_outline_2dp" />
 
                                 <ImageView
@@ -144,8 +159,7 @@
                                     android:layout_height="match_parent"
                                     android:layout_centerInParent="true"
                                     android:layout_margin="7dp"
-                                    android:tint="@color/blue_grey_400"
-                                    app:srcCompat="@drawable/ic_description" />
+                                    app:srcCompat="@drawable/ic_dashboard_profile" />
 
                             </RelativeLayout>
 
@@ -155,7 +169,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="@dimen/spacing_medium"
                                 android:layout_marginTop="50dp"
-                                android:text="Bills"
+                                android:text="Profile"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
                                 android:textColor="@color/grey_80"
                                 app:fontFamily="sans-serif-medium" />
@@ -192,14 +206,14 @@
                             android:padding="@dimen/spacing_large">
 
                             <RelativeLayout
-                                android:layout_width="35dp"
-                                android:layout_height="35dp">
+                                android:layout_width="40dp"
+                                android:layout_height="40dp">
 
                                 <ImageView
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:layout_centerInParent="true"
-                                    android:tint="@color/blue_grey_400"
+                                    android:tint="@color/red_700"
                                     app:srcCompat="@drawable/shape_circle_outline_2dp" />
 
                                 <ImageView
@@ -207,8 +221,7 @@
                                     android:layout_height="match_parent"
                                     android:layout_centerInParent="true"
                                     android:layout_margin="8dp"
-                                    android:tint="@color/blue_grey_400"
-                                    app:srcCompat="@drawable/ic_receipt" />
+                                    app:srcCompat="@drawable/ic_dashboard_database" />
 
                             </RelativeLayout>
 
@@ -218,7 +231,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="@dimen/spacing_medium"
                                 android:layout_marginTop="50dp"
-                                android:text="Invoices"
+                                android:text="Database"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
                                 android:textColor="@color/grey_80"
                                 app:fontFamily="sans-serif-medium" />
@@ -248,14 +261,14 @@
                             android:padding="@dimen/spacing_large">
 
                             <RelativeLayout
-                                android:layout_width="35dp"
-                                android:layout_height="35dp">
+                                android:layout_width="40dp"
+                                android:layout_height="40dp">
 
                                 <ImageView
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:layout_centerInParent="true"
-                                    android:tint="@color/blue_grey_400"
+                                    android:tint="@color/blue_600"
                                     app:srcCompat="@drawable/shape_circle_outline_2dp" />
 
                                 <ImageView
@@ -264,8 +277,7 @@
                                     android:layout_centerInParent="true"
                                     android:layout_margin="7dp"
                                     android:paddingTop="2dp"
-                                    android:tint="@color/blue_grey_400"
-                                    app:srcCompat="@drawable/ic_chat_outline" />
+                                    app:srcCompat="@drawable/ic_dashboard_help" />
 
                             </RelativeLayout>
 
@@ -275,7 +287,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="@dimen/spacing_medium"
                                 android:layout_marginTop="50dp"
-                                android:text="Support"
+                                android:text="Help"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
                                 android:textColor="@color/grey_80"
                                 app:fontFamily="sans-serif-medium" />

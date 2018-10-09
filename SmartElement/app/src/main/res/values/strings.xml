@@ -13,5 +13,6 @@
 
     <string name="about_text">The best android implementation of material UI components. This app implemented based on Google Design Guidelines.
     </string>
-
+    <string name="auth_failed">Authentication failed, check your email and password or sign up</string>
+    <string name="welcome">Welcome, </string>
 </resources>

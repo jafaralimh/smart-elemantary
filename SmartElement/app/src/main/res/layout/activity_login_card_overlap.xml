@@ -60,6 +60,7 @@
                     android:textColor="@color/grey_40" />
 
                 <android.support.design.widget.TextInputEditText
+                    android:id="@+id/signInEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="-4dp"
@@ -86,6 +87,7 @@
                     android:textColor="@color/grey_40" />
 
                 <android.support.design.widget.TextInputEditText
+                    android:id="@+id/signInPass"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="-4dp"
@@ -104,6 +106,7 @@
                     android:layout_height="@dimen/spacing_mlarge" />
 
                 <Button
+                    android:id="@+id/signInBtn"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:layout_marginLeft="-4dp"
