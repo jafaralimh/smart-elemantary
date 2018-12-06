@@ -5,12 +5,30 @@
     android:layout_height="match_parent"
     android:background="@color/grey_10">
 
+    <FrameLayout
+        android:id="@+id/progressBarHolder"
+        android:animateLayoutChanges="true"
+        android:visibility="gone"
+        android:alpha="0.4"
+        android:background="@color/mdtp_transparent_black"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:indeterminateDrawable="@drawable/progress"/>
+    </FrameLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="220dp"
         android:background="@color/colorPrimary" />
 
     <LinearLayout
+        android:id="@+id/log_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true"

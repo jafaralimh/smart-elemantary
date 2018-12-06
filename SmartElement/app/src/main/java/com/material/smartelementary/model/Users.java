@@ -1,7 +1,7 @@
 package com.material.smartelementary.model;
 
 public class Users {
-    public String fullname, dob, position, nip, npsn, phone, status;
+    public String fullname, dob, position, nip, npsn, phone, status, key;
 
     public Users() {
     }
@@ -28,6 +28,8 @@ public class Users {
 
     public void setStatus(String status) { this.status = status;}
 
+    public void setKeyUser(String key) { this.key = key;}
+
     public String getFullname() {
         return fullname;
     }
@@ -49,4 +51,6 @@ public class Users {
     public String getPhone() { return phone;}
 
     public String getStatus() { return status;}
+
+    public String getKeyUser() { return key;}
 }

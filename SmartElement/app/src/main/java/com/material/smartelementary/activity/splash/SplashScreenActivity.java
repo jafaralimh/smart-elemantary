@@ -8,6 +8,7 @@ import android.os.Bundle;
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.material.smartelementary.R;
+import com.material.smartelementary.activity.dashboard.DashboardGridFab;
 import com.material.smartelementary.activity.login.LoginCardOverlap;
 
 public class SplashScreenActivity extends AppCompatActivity {
@@ -26,8 +27,11 @@ public class SplashScreenActivity extends AppCompatActivity {
             @Override
             public void run() {
                 loadSpin = (SpinKitView) findViewById(R.id.loadSpin);
+                /*startActivity(new Intent(SplashScreenActivity.this, DashboardGridFab.class));
+                finish();*/
                 if (auth.getCurrentUser() != null) {
-//                    startActivity(new Intent(LoginCardOverlap.class, ));
+                    startActivity(new Intent(SplashScreenActivity.this, DashboardGridFab.class));
+                    finish();
                 } else {
                     Intent login = new Intent(SplashScreenActivity.this, LoginCardOverlap.class);
                     startActivity(login);

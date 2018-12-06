@@ -15,4 +15,7 @@
     </string>
     <string name="auth_failed">Authentication failed, check your email and password or sign up</string>
     <string name="welcome">Welcome, </string>
+    <string name="tips_vac">Tips: only type <b>sudah</b> or <b>belum</b> inside every vaccine field.</string>
+    <string name="data_success">Data has been submitted</string>
+    <string name="data_failed">Data failed. Check your connection.</string>
 </resources>

@@ -1,92 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/grey_10"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
+    <FrameLayout
+        android:id="@+id/progressBarHolder"
+        android:animateLayoutChanges="true"
+        android:visibility="gone"
+        android:alpha="0.4"
+        android:background="@color/mdtp_transparent_black"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:indeterminateDrawable="@drawable/progress"/>
+    </FrameLayout>
+
     <RelativeLayout
+        android:id="@+id/home_layout"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:background="@color/colorPrimary">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="107dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="0dp"
             android:scaleType="centerCrop"
             android:src="@drawable/world_map"
             android:tint="@color/overlay_light_30" />
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:contentInsetStartWithNavigation="0dp"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:subtitle="welcome to MaterialX"
-            app:subtitleTextAppearance="@style/Base.TextAppearance.AppCompat.Caption"
-            app:subtitleTextColor="@color/grey_10"
-            app:title="Hi, Miller Wilson" />
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="80dp"
+            android:layout_height="77dp"
+            android:layout_above="@+id/toolbar"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginBottom="-40dp"
+            android:scaleType="center"
+            app:srcCompat="@mipmap/ic_launcher_foreground" />
+
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/imageView3"
+            android:layout_alignBottom="@+id/imageView3"
+            android:layout_marginStart="-21dp"
+            android:layout_marginBottom="-33dp"
+            android:text="Welcome to Smart Elementary: "
+            android:textColor="@android:color/white"
+            android:layout_alignLeft="@+id/imageView3"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/text_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textView17"
+            android:layout_toEndOf="@+id/textView17"
+            android:layout_marginLeft="@dimen/spacing_small"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            tools:ignore="RtlCompat" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/logout_home"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="13dp"
+            android:layout_marginRight="13dp"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:clickable="true"
+            android:focusable="true"
+            android:tint="@android:color/white"
+            app:backgroundTint="@color/red_500"
+            app:elevation="0dp"
+            app:fabSize="normal"
+            app:rippleColor="@android:color/white"
+            app:srcCompat="@drawable/ic_undo" />
 
     </RelativeLayout>
 
-
-    <android.support.v7.widget.CardView
-        android:id="@+id/search_bar"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginBottom="@dimen/spacing_medium"
-        android:layout_marginLeft="@dimen/spacing_middle"
-        android:layout_marginRight="@dimen/spacing_middle"
-        android:layout_marginTop="-30dp"
-        android:clipToPadding="false"
-        app:cardBackgroundColor="@android:color/white"
-        app:cardCornerRadius="4dp"
-        app:cardElevation="2dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <ImageButton
-                android:layout_width="?attr/actionBarSize"
-                android:layout_height="?attr/actionBarSize"
-                android:background="@android:color/transparent"
-                android:clickable="true"
-                android:tint="@color/grey_60"
-                app:srcCompat="@drawable/ic_search" />
-
-            <EditText
-                android:id="@+id/et_search"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:hint="Find our product"
-                android:imeOptions="actionSearch"
-                android:maxLines="1"
-                android:singleLine="true">
-
-                <requestFocus />
-
-            </EditText>
-
-            <ImageButton
-                android:layout_width="?attr/actionBarSize"
-                android:layout_height="?attr/actionBarSize"
-                android:background="@android:color/transparent"
-                android:clickable="true"
-                android:tint="@color/grey_60"
-                app:srcCompat="@drawable/ic_menu" />
-
-        </LinearLayout>
-
-    </android.support.v7.widget.CardView>
 
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/nested_scroll_view"
@@ -102,6 +123,15 @@
             android:descendantFocusability="blocksDescendants"
             android:orientation="vertical">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="right|center"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
             <View
                 android:layout_width="0dp"
                 android:layout_height="35dp" />
@@ -109,10 +139,10 @@
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_medium"
                 android:layout_marginLeft="@dimen/spacing_middle"
-                android:layout_marginRight="@dimen/spacing_middle"
                 android:layout_marginTop="@dimen/spacing_middle"
+                android:layout_marginRight="@dimen/spacing_middle"
+                android:layout_marginBottom="@dimen/spacing_medium"
                 android:visibility="visible"
                 app:cardCornerRadius="4dp"
                 app:cardElevation="2dp">
@@ -123,127 +153,21 @@
                     android:orientation="vertical"
                     android:padding="@dimen/spacing_middle">
 
+                    <TextView
+                        android:layout_width="300dp"
+                        android:layout_height="match_parent"
+                        android:text="Smart Elementary adalah aplikasi khusus untuk memonitoring data vaksin siswa Sekolah Dasar di Kota Bandung. Aplikasi ini hanya bisa digunakan oleh user yang sudah terverifikasi oleh Dinas Pendidikan Kota Bandung."
+                        android:textAppearance="@style/TextAppearance.AppCompat"
+                        android:textColor="@color/mdtp_light_gray"
+                        android:gravity="center"
+                        android:layout_gravity="center_horizontal"
+                        android:textSize="12sp" >
+                    </TextView>
+
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/spacing_mxlarge" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_horizontal"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <android.support.design.widget.FloatingActionButton
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:clickable="true"
-                                android:tint="@android:color/white"
-                                app:backgroundTint="@color/light_green_500"
-                                app:elevation="0dp"
-                                app:fabSize="mini"
-                                app:rippleColor="@android:color/white"
-                                app:srcCompat="@drawable/ic_person" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/spacing_medium"
-                                android:text="FRIENDS"
-                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
-                                android:textColor="@color/grey_40" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <android.support.design.widget.FloatingActionButton
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:clickable="true"
-                                android:tint="@android:color/white"
-                                app:backgroundTint="@color/yellow_600"
-                                app:elevation="0dp"
-                                app:fabSize="mini"
-                                app:rippleColor="@android:color/white"
-                                app:srcCompat="@drawable/ic_peoples" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/spacing_medium"
-                                android:text="GROUPS"
-                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
-                                android:textColor="@color/grey_40" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <android.support.design.widget.FloatingActionButton
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:clickable="true"
-                                android:tint="@android:color/white"
-                                app:backgroundTint="@color/purple_400"
-                                app:elevation="0dp"
-                                app:fabSize="mini"
-                                app:rippleColor="@android:color/white"
-                                app:srcCompat="@drawable/ic_location" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/spacing_medium"
-                                android:text="NEARABY"
-                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
-                                android:textColor="@color/grey_40" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <android.support.design.widget.FloatingActionButton
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:clickable="true"
-                                android:tint="@android:color/white"
-                                app:backgroundTint="@color/blue_400"
-                                app:elevation="0dp"
-                                app:fabSize="mini"
-                                app:rippleColor="@android:color/white"
-                                app:srcCompat="@drawable/ic_near_me" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/spacing_medium"
-                                android:text="MOMENT"
-                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
-                                android:textColor="@color/grey_40" />
-                        </LinearLayout>
-
-                    </LinearLayout>
-
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/spacing_mlarge" />
@@ -262,49 +186,23 @@
                             android:orientation="vertical">
 
                             <android.support.design.widget.FloatingActionButton
+                                android:id="@+id/home_dashboard"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:clickable="true"
-                                android:tint="@android:color/white"
-                                app:backgroundTint="@color/indigo_300"
-                                app:elevation="0dp"
-                                app:fabSize="mini"
-                                app:rippleColor="@android:color/white"
-                                app:srcCompat="@drawable/ic_crop_original" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/spacing_medium"
-                                android:text="ALBUMS"
-                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
-                                android:textColor="@color/grey_40" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <android.support.design.widget.FloatingActionButton
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:clickable="true"
+                                android:focusable="true"
                                 android:tint="@android:color/white"
                                 app:backgroundTint="@color/green_500"
                                 app:elevation="0dp"
-                                app:fabSize="mini"
+                                app:fabSize="normal"
                                 app:rippleColor="@android:color/white"
-                                app:srcCompat="@drawable/ic_favorites" />
+                                app:srcCompat="@drawable/ic_home" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/spacing_medium"
-                                android:text="LIKES"
+                                android:text="HOME"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
                                 android:textColor="@color/grey_40" />
                         </LinearLayout>
@@ -317,48 +215,23 @@
                             android:orientation="vertical">
 
                             <android.support.design.widget.FloatingActionButton
+                                android:id="@+id/database_dashboard"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:clickable="true"
+                                android:focusable="true"
                                 android:tint="@android:color/white"
-                                app:backgroundTint="@color/light_green_400"
+                                app:backgroundTint="@color/blue_500"
                                 app:elevation="0dp"
-                                app:fabSize="mini"
+                                app:fabSize="normal"
                                 app:rippleColor="@android:color/white"
-                                app:srcCompat="@drawable/ic_subject" />
+                                app:srcCompat="@drawable/ic_dashboard_database" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/spacing_medium"
-                                android:text="ARTICLES"
-                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
-                                android:textColor="@color/grey_40" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <android.support.design.widget.FloatingActionButton
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:clickable="true"
-                                android:tint="@android:color/white"
-                                app:backgroundTint="@color/orange_300"
-                                app:elevation="0dp"
-                                app:fabSize="mini"
-                                app:rippleColor="@android:color/white"
-                                app:srcCompat="@drawable/ic_textsms" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/spacing_medium"
-                                android:text="REVIEWS"
+                                android:text="DATABASE"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
                                 android:textColor="@color/grey_40" />
                         </LinearLayout>
@@ -384,49 +257,23 @@
                             android:orientation="vertical">
 
                             <android.support.design.widget.FloatingActionButton
+                                android:id="@+id/vaksin_dashboard"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:clickable="true"
+                                android:focusable="true"
                                 android:tint="@android:color/white"
-                                app:backgroundTint="@color/cyan_300"
+                                app:backgroundTint="@color/red_500"
                                 app:elevation="0dp"
-                                app:fabSize="mini"
+                                app:fabSize="normal"
                                 app:rippleColor="@android:color/white"
-                                app:srcCompat="@drawable/ic_fitness_center" />
+                                app:srcCompat="@drawable/icons8_health_book_96" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/spacing_medium"
-                                android:text="SPORTS"
-                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
-                                android:textColor="@color/grey_40" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <android.support.design.widget.FloatingActionButton
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:clickable="true"
-                                android:tint="@android:color/white"
-                                app:backgroundTint="@color/teal_500"
-                                app:elevation="0dp"
-                                app:fabSize="mini"
-                                app:rippleColor="@android:color/white"
-                                app:srcCompat="@drawable/ic_credit_card" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/spacing_medium"
-                                android:text="PAYMENT"
+                                android:text="VAKSIN"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
                                 android:textColor="@color/grey_40" />
                         </LinearLayout>
@@ -439,48 +286,23 @@
                             android:orientation="vertical">
 
                             <android.support.design.widget.FloatingActionButton
+                                android:id="@+id/panduan_dashboard"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:clickable="true"
+                                android:focusable="true"
                                 android:tint="@android:color/white"
-                                app:backgroundTint="@color/deep_orange_300"
+                                app:backgroundTint="@color/yellow_500"
                                 app:elevation="0dp"
-                                app:fabSize="mini"
+                                app:fabSize="normal"
                                 app:rippleColor="@android:color/white"
-                                app:srcCompat="@drawable/ic_star" />
+                                app:srcCompat="@drawable/icons8_literature_96" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/spacing_medium"
-                                android:text="FAVORITES"
-                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
-                                android:textColor="@color/grey_40" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <android.support.design.widget.FloatingActionButton
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:clickable="true"
-                                android:tint="@android:color/white"
-                                app:backgroundTint="@color/blue_grey_400"
-                                app:elevation="0dp"
-                                app:fabSize="mini"
-                                app:rippleColor="@android:color/white"
-                                app:srcCompat="@drawable/ic_description" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/spacing_medium"
-                                android:text="DRAFTS"
+                                android:text="PANDUAN"
                                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
                                 android:textColor="@color/grey_40" />
                         </LinearLayout>
@@ -498,62 +320,13 @@
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_large"
                 android:layout_marginLeft="@dimen/spacing_middle"
-                android:layout_marginRight="@dimen/spacing_middle"
                 android:layout_marginTop="@dimen/spacing_middle"
+                android:layout_marginRight="@dimen/spacing_middle"
+                android:layout_marginBottom="@dimen/spacing_large"
                 android:visibility="visible"
                 app:cardCornerRadius="4dp"
                 app:cardElevation="2dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="@dimen/spacing_large">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Balance"
-                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
-                            android:textColor="@color/grey_60" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="$ 730"
-                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                            android:textColor="@color/green_400"
-                            android:textStyle="bold" />
-
-                    </LinearLayout>
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/shape_rounded_orange"
-                        android:paddingBottom="@dimen/spacing_small"
-                        android:paddingLeft="@dimen/spacing_xmedium"
-                        android:paddingRight="@dimen/spacing_xmedium"
-                        android:paddingTop="@dimen/spacing_small">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="415 Points"
-                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
-                            android:textColor="@android:color/white" />
-
-                    </RelativeLayout>
-
-                </LinearLayout>
 
             </android.support.v7.widget.CardView>
 

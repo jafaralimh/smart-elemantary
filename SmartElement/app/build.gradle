@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 27
-    buildToolsVersion '28.0.2'
+    buildToolsVersion '28.0.3'
 
     defaultConfig {
         applicationId "com.material.smartelementary"
@@ -10,6 +10,7 @@ android {
         targetSdkVersion 27
         versionCode 20
         versionName "2.0"
+        multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
     }
 
@@ -56,9 +57,14 @@ dependencies {
     implementation 'com.github.ybq:Android-SpinKit:1.1.0'
 
     // firebase -----------------------------------------------------------------------------------
+    //noinspection GradleDependency
     implementation 'com.google.firebase:firebase-auth:16.0.4'
-    implementation 'com.google.firebase:firebase-database:16.0.3'
+    //noinspection GradleDependency
+    implementation 'com.google.firebase:firebase-database:16.0.4'
+    //noinspection GradleDependency
     implementation 'com.google.firebase:firebase-core:16.0.4'
+    //noinspection GradleDependency
+    implementation 'com.google.firebase:firebase-firestore:17.1.2'
 }
 
 apply plugin: 'com.google.gms.google-services'

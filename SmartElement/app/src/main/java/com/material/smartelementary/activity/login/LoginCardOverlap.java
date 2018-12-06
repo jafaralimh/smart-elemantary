@@ -7,14 +7,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.api.Distribution;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.material.smartelementary.R;
+import com.material.smartelementary.activity.dashboard.DashboardGridFab;
 import com.material.smartelementary.activity.dashboard.MainDashboard;
 
 import java.util.regex.Matcher;
@@ -26,6 +32,9 @@ public class LoginCardOverlap extends AppCompatActivity {
     private FirebaseAuth auth;
     private TextInputEditText inputEmail, inputPass;
     private Button signIn;
+    private ProgressBar progressBar;
+    private FrameLayout progressBarHolder;
+    private LinearLayout logLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +47,9 @@ public class LoginCardOverlap extends AppCompatActivity {
         inputEmail = findViewById(R.id.signInEmail);
         inputPass = findViewById(R.id.signInPass);
         signIn = findViewById(R.id.signInBtn);
+        logLayout = findViewById(R.id.log_layout);
+        progressBar = findViewById(R.id.progressBar);
+        progressBarHolder = findViewById(R.id.progressBarHolder);
 
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +71,8 @@ public class LoginCardOverlap extends AppCompatActivity {
                     inputPass.setError("Input your password");
                 }
 
+                isLoadingActive();
+
                 auth.signInWithEmailAndPassword(email, pass)
                         .addOnCompleteListener(LoginCardOverlap.this, new OnCompleteListener<AuthResult>() {
                             @Override
@@ -68,9 +82,11 @@ public class LoginCardOverlap extends AppCompatActivity {
                                         inputPass.setError("Password too short. Must be at least 8 characters");
                                     } else {
                                         Toast.makeText(LoginCardOverlap.this, getString(R.string.auth_failed), Toast.LENGTH_SHORT).show();
+                                        isLoadingInactive();
                                     }
                                 } else {
-                                    startActivity(new Intent(LoginCardOverlap.this, MainDashboard.class));
+                                    isLoadingInactive();
+                                    startActivity(new Intent(LoginCardOverlap.this, DashboardGridFab.class));
                                     finish();
                                 }
                             }
@@ -92,5 +108,23 @@ public class LoginCardOverlap extends AppCompatActivity {
         Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
+    }
+
+    private void isLoadingActive() {
+        AlphaAnimation inAnimation = new AlphaAnimation(0f, 1f);
+        inAnimation.setDuration(200);
+        progressBarHolder.setAnimation(inAnimation);
+        progressBar.setVisibility(View.VISIBLE);
+        progressBarHolder.setVisibility(View.VISIBLE);
+        logLayout.setVisibility(View.INVISIBLE);
+    }
+
+    private void isLoadingInactive() {
+        AlphaAnimation outAnimation = new AlphaAnimation(1f, 0f);
+        outAnimation.setDuration(200);
+        progressBarHolder.setAnimation(outAnimation);
+        progressBar.setVisibility(View.GONE);
+        progressBarHolder.setVisibility(View.GONE);
+        logLayout.setVisibility(View.VISIBLE);
     }
 }

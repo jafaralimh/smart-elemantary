@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/database_dashboard"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/grey_10"
@@ -21,17 +22,34 @@
 
     </RelativeLayout>
 
+    <FrameLayout
+        android:id="@+id/progressBarHolder"
+        android:animateLayoutChanges="true"
+        android:visibility="gone"
+        android:alpha="0.4"
+        android:background="@color/mdtp_transparent_black"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:indeterminateDrawable="@drawable/progress"/>
+    </FrameLayout>
+
     <android.support.v4.widget.NestedScrollView
-        android:id="@+id/nested_scroll_view"
+        android:id="@+id/nik_search_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:visibility="visible"
         android:scrollbars="none"
         android:scrollingCache="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:descendantFocusability="blocksDescendants"
             android:orientation="vertical">
 
             <android.support.v7.widget.Toolbar
@@ -43,6 +61,7 @@
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
             <LinearLayout
+                android:id="@+id/search_block"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-10dp"
@@ -53,16 +72,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/spacing_mlarge"
-                    android:text="Where will go?"
+                    android:text="Smart Elementary"
                     android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                     android:textColor="@android:color/white" />
 
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/spacing_medium"
                     android:layout_marginLeft="@dimen/spacing_middle"
                     android:layout_marginRight="@dimen/spacing_middle"
+                    android:layout_marginBottom="@dimen/spacing_medium"
                     android:clipToPadding="false"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="1dp"
@@ -80,14 +99,15 @@
                             android:background="@android:color/transparent"
                             android:clickable="true"
                             android:tint="@color/grey_40"
-                            app:srcCompat="@drawable/ic_flight_takeoff" />
+                            app:srcCompat="@drawable/icons8_user_32" />
 
                         <EditText
+                            android:id="@+id/nik_search"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:background="@android:color/transparent"
-                            android:hint="Origin"
+                            android:hint="Search NIK Siswa"
                             android:imeOptions="actionSearch"
                             android:maxLines="1"
                             android:singleLine="true">
@@ -97,10 +117,12 @@
                         </EditText>
 
                         <ImageButton
+                            android:id="@+id/search_stu"
                             android:layout_width="?attr/actionBarSize"
                             android:layout_height="?attr/actionBarSize"
                             android:background="@android:color/transparent"
                             android:clickable="true"
+                            android:focusable="true"
                             android:tint="@color/grey_40"
                             app:srcCompat="@drawable/ic_search" />
 
@@ -112,64 +134,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/spacing_small" />
 
-                <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/spacing_medium"
-                    android:layout_marginLeft="@dimen/spacing_middle"
-                    android:layout_marginRight="@dimen/spacing_middle"
-                    android:clipToPadding="false"
-                    app:cardBackgroundColor="@android:color/white"
-                    app:cardCornerRadius="1dp"
-                    app:cardElevation="2dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <ImageButton
-                            android:layout_width="?attr/actionBarSize"
-                            android:layout_height="?attr/actionBarSize"
-                            android:background="@android:color/transparent"
-                            android:clickable="true"
-                            android:tint="@color/grey_40"
-                            app:srcCompat="@drawable/ic_flight_land" />
-
-                        <EditText
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:background="@android:color/transparent"
-                            android:hint="Destination"
-                            android:imeOptions="actionSearch"
-                            android:maxLines="1"
-                            android:singleLine="true" />
-
-                        <ImageButton
-                            android:layout_width="?attr/actionBarSize"
-                            android:layout_height="?attr/actionBarSize"
-                            android:background="@android:color/transparent"
-                            android:clickable="true"
-                            android:tint="@color/grey_40"
-                            app:srcCompat="@drawable/ic_search" />
-
-                    </LinearLayout>
-
-                </android.support.v7.widget.CardView>
-
             </LinearLayout>
 
 
             <android.support.v7.widget.CardView
+                android:id="@+id/datasiswa"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_medium"
                 android:layout_marginLeft="@dimen/spacing_middle"
-                android:layout_marginRight="@dimen/spacing_middle"
                 android:layout_marginTop="@dimen/spacing_middle"
-                android:visibility="visible"
+                android:layout_marginRight="@dimen/spacing_middle"
+                android:layout_marginBottom="@dimen/spacing_medium"
+                android:visibility="gone"
                 app:cardCornerRadius="1dp"
                 app:cardElevation="2dp">
 
@@ -181,14 +157,15 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="@dimen/spacing_large"
-                        android:text="Departure"
+                        android:padding="@dimen/spacing_mlarge"
+                        android:text="Data Siswa"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
                         android:textColor="@color/grey_40" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:paddingLeft="@dimen/spacing_large"
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
@@ -196,21 +173,22 @@
                             android:layout_width="@dimen/spacing_xmedium"
                             android:layout_height="0dp" />
 
-                        <ImageButton
-                            android:layout_width="@dimen/spacing_xmlarge"
-                            android:layout_height="@dimen/spacing_xmlarge"
-                            android:background="@android:color/transparent"
-                            android:clickable="true"
-                            android:tint="@color/grey_40"
-                            app:srcCompat="@drawable/ic_event" />
-
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Thus, 10 Mar 2018"
+                            android:text="NIK : "
                             android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
                             android:textColor="@color/grey_60" />
+
+                        <TextView
+                            android:id="@+id/nik_res"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="None"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                            android:textColor="@color/blue_grey_500" />
 
                     </LinearLayout>
 
@@ -221,17 +199,10 @@
                         android:layout_marginRight="@dimen/spacing_large"
                         android:background="@color/grey_20" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="@dimen/spacing_large"
-                        android:text="Passenger"
-                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
-                        android:textColor="@color/grey_40" />
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:paddingLeft="@dimen/spacing_large"
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
@@ -239,49 +210,22 @@
                             android:layout_width="@dimen/spacing_xmedium"
                             android:layout_height="0dp" />
 
-                        <ImageButton
-                            android:layout_width="@dimen/spacing_xmlarge"
-                            android:layout_height="@dimen/spacing_xmlarge"
-                            android:background="@android:color/transparent"
-                            android:clickable="true"
-                            android:tint="@color/grey_40"
-                            app:srcCompat="@drawable/ic_person" />
-
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="2 Adult"
+                            android:text="Sekolah : "
                             android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
                             android:textColor="@color/grey_60" />
 
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <View
-                            android:layout_width="@dimen/spacing_xmedium"
-                            android:layout_height="0dp" />
-
-                        <ImageButton
-                            android:layout_width="@dimen/spacing_xmlarge"
-                            android:layout_height="@dimen/spacing_xmlarge"
-                            android:background="@android:color/transparent"
-                            android:clickable="true"
-                            android:tint="@color/grey_40"
-                            app:srcCompat="@drawable/ic_person" />
-
                         <TextView
+                            android:id="@+id/sch_name_res"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="1 Child"
+                            android:text="None"
                             android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
-                            android:textColor="@color/grey_60" />
+                            android:textColor="@color/blue_grey_500" />
 
                     </LinearLayout>
 
@@ -292,17 +236,10 @@
                         android:layout_marginRight="@dimen/spacing_large"
                         android:background="@color/grey_20" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="@dimen/spacing_large"
-                        android:text="Cabin class"
-                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
-                        android:textColor="@color/grey_40" />
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:paddingLeft="@dimen/spacing_large"
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
@@ -310,21 +247,348 @@
                             android:layout_width="@dimen/spacing_xmedium"
                             android:layout_height="0dp" />
 
-                        <ImageButton
-                            android:layout_width="@dimen/spacing_xmlarge"
-                            android:layout_height="@dimen/spacing_xmlarge"
-                            android:background="@android:color/transparent"
-                            android:clickable="true"
-                            android:tint="@color/grey_40"
-                            app:srcCompat="@drawable/ic_event_seat" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="NPSN : "
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                            android:textColor="@color/grey_60" />
+
+                        <TextView
+                            android:id="@+id/npsn_res"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="None"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                            android:textColor="@color/blue_grey_500" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2px"
+                        android:layout_marginLeft="@dimen/spacing_large"
+                        android:layout_marginRight="@dimen/spacing_large"
+                        android:background="@color/grey_20" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="@dimen/spacing_large"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="@dimen/spacing_xmedium"
+                            android:layout_height="0dp" />
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Thus, 10 Mar 2018"
+                            android:text="Nama : "
                             android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
                             android:textColor="@color/grey_60" />
+
+                        <TextView
+                            android:id="@+id/name_res"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="None"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                            android:textColor="@color/blue_grey_500" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2px"
+                        android:layout_marginLeft="@dimen/spacing_large"
+                        android:layout_marginRight="@dimen/spacing_large"
+                        android:background="@color/grey_20" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/spacing_large"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="@dimen/spacing_xmedium"
+                            android:layout_height="0dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Alamat: "
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                            android:textColor="@color/grey_60" />
+
+                        <TextView
+                            android:id="@+id/addr_res"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="None"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                            android:textColor="@color/blue_grey_500" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/spacing_large"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="@dimen/spacing_xmedium"
+                            android:layout_height="0dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Gol Darah :"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                            android:textColor="@color/grey_60" />
+
+                        <TextView
+                            android:id="@+id/blood_res"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="None"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                            android:textColor="@color/blue_grey_500" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2px"
+                        android:layout_marginLeft="@dimen/spacing_large"
+                        android:layout_marginRight="@dimen/spacing_large"
+                        android:background="@color/grey_20" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/spacing_large"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="@dimen/spacing_xmedium"
+                            android:layout_height="0dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Tanggal Lahir :"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                            android:textColor="@color/grey_60" />
+
+                        <TextView
+                            android:id="@+id/dob_res"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="None"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                            android:textColor="@color/blue_grey_500" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2px"
+                        android:layout_marginLeft="@dimen/spacing_large"
+                        android:layout_marginRight="@dimen/spacing_large"
+                        android:background="@color/grey_20" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/spacing_large"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="@dimen/spacing_xmedium"
+                            android:layout_height="0dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Gender :"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                            android:textColor="@color/grey_60" />
+
+                        <TextView
+                            android:id="@+id/gen_res"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="None"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                            android:textColor="@color/blue_grey_500" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2px"
+                        android:layout_marginLeft="@dimen/spacing_large"
+                        android:layout_marginRight="@dimen/spacing_large"
+                        android:background="@color/grey_20" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/spacing_large"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="@dimen/spacing_xmedium"
+                            android:layout_height="0dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Agama :"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                            android:textColor="@color/grey_60" />
+
+                        <TextView
+                            android:id="@+id/rel_res"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="None"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                            android:textColor="@color/blue_grey_500" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2px"
+                        android:layout_marginLeft="@dimen/spacing_large"
+                        android:layout_marginRight="@dimen/spacing_large"
+                        android:background="@color/grey_20" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/spacing_large"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="@dimen/spacing_xmedium"
+                            android:layout_height="0dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Kebangsaan :"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                            android:textColor="@color/grey_60" />
+
+                        <TextView
+                            android:id="@+id/nat_res"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="None"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                            android:textColor="@color/blue_grey_500" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2px"
+                        android:layout_marginLeft="@dimen/spacing_large"
+                        android:layout_marginRight="@dimen/spacing_large"
+                        android:background="@color/grey_20" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/spacing_large"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="@dimen/spacing_xmedium"
+                            android:layout_height="0dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Nama Orang Tua :"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                            android:textColor="@color/grey_60" />
+
+                        <TextView
+                            android:id="@+id/parent_res"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="None"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                            android:textColor="@color/blue_grey_500" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2px"
+                        android:layout_marginLeft="@dimen/spacing_large"
+                        android:layout_marginRight="@dimen/spacing_large"
+                        android:background="@color/grey_20" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/spacing_large"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="@dimen/spacing_xmedium"
+                            android:layout_height="0dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="No. Telf. Orangtua :"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                            android:textColor="@color/grey_60" />
+
+                        <TextView
+                            android:id="@+id/phone_res"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="None"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                            android:textColor="@color/blue_grey_500" />
 
                     </LinearLayout>
 
@@ -337,6 +601,8 @@
             </android.support.v7.widget.CardView>
 
             <LinearLayout
+                android:id="@+id/vaccines1_res"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -346,7 +612,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:visibility="visible"
                     app:cardCornerRadius="1dp"
                     app:cardElevation="2dp"
                     app:cardUseCompatPadding="true">
@@ -360,17 +625,103 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Balance"
+                            android:text="Vaksin DPT"
                             android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
                             android:textColor="@color/grey_40" />
 
                         <TextView
+                            android:id="@+id/dpt-kosong"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="$ 730"
-                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                            android:textColor="@color/green_400"
-                            android:textStyle="bold" />
+                            android:text="Belum"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                            android:textColor="@color/blue_grey_500" />
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <View
+                    android:layout_width="@dimen/spacing_medium"
+                    android:layout_height="0dp" />
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/polio"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="1dp"
+                    app:cardElevation="2dp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="@dimen/spacing_large">
+
+                        <TextView
+                            android:id="@+id/vaksin-polio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Vaksin Polio"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                            android:textColor="@color/grey_40" />
+
+                        <TextView
+                            android:id="@+id/polio-kosong"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Belum"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                            android:textColor="@color/blue_grey_500" />
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_middle" />
+
+            <LinearLayout
+                android:id="@+id/vaccines2_res"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/spacing_xmedium">
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="1dp"
+                    app:cardElevation="2dp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/spacing_large">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Vaksin MMR"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                            android:textColor="@color/grey_40" />
+
+                        <TextView
+                            android:id="@+id/mmr-kosong"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Belum"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                            android:textColor="@color/blue_grey_500" />
 
                     </LinearLayout>
 
@@ -384,7 +735,50 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:visibility="visible"
+                    app:cardCornerRadius="1dp"
+                    app:cardElevation="2dp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="@dimen/spacing_large">
+
+                        <TextView
+                            android:id="@+id/vaksin-tifoid"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Vaksin Tifoid"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                            android:textColor="@color/grey_40" />
+
+                        <TextView
+                            android:id="@+id/tif-kosong"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Belum"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                            android:textColor="@color/blue_grey_500" />
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/vaccines3_res"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/spacing_xmedium">
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     app:cardCornerRadius="1dp"
                     app:cardElevation="2dp"
                     app:cardUseCompatPadding="true">
@@ -398,27 +792,60 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Points"
+                            android:text="Vaksin HPV"
                             android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
                             android:textColor="@color/grey_40" />
 
                         <TextView
+                            android:id="@+id/hpv-kosong"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="320"
-                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                            android:textColor="@color/green_400"
-                            android:textStyle="bold" />
+                            android:text="Belum"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                            android:textColor="@color/blue_grey_500" />
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <View
+                    android:layout_width="@dimen/spacing_medium"
+                    android:layout_height="0dp" />
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="1dp"
+                    app:cardElevation="2dp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="@dimen/spacing_large">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Vaksin Influenza"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                            android:textColor="@color/grey_40" />
+
+                        <TextView
+                            android:id="@+id/inf-kosong"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Belum"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                            android:textColor="@color/blue_grey_500" />
 
                     </LinearLayout>
 
                 </android.support.v7.widget.CardView>
 
             </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/spacing_middle" />
 
         </LinearLayout>
 
